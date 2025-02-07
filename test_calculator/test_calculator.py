@@ -1,5 +1,5 @@
 '''Calculator test'''
-from calculator import add, subtract, multiply, divide 
+from calculator import add, subtract, multiply, divide
 
 def test_add():
     '''Test add function'''
@@ -16,4 +16,3 @@ def test_multiply():
 def test_divide():
     '''Test division function'''
     assert divide(2,2) == 1
-
