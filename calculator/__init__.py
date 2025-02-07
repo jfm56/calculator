@@ -1,11 +1,18 @@
-def add(a,b):
-    return a + b
+"""Basic arithmetic operations: addition, subtraction, multiplication, and division."""
+from decimal import Decimal
 
-def subtract(a,b):
-    return a - b
+def add(num1: Decimal,num2: Decimal) -> Decimal:
+    """Return the sum of two numbers."""
+    return num1 + num2
 
-def multiply (a,b):
-    return a * b
+def subtract(num1: Decimal,num2: Decimal) -> Decimal:
+    """Return the difference of two numbers."""
+    return num1 - num2
 
-def divide (a,b):
-    return a / b
+def multiply (num1: Decimal,num2: Decimal) -> Decimal:
+    """Return the product of two numbers."""
+    return num1 * num2
+
+def divide (num1: Decimal,num2: Decimal) -> Decimal:
+    """Return the quotent of two numbers."""
+    return num1 / num2
