@@ -29,5 +29,19 @@ class CalculationHistory:
 
     @classmethod
     def get_history(cls)-> "calculations":
-        "Returns most recent calculations or None if history is empty"
-        return cls.history if cls.history else None
+        """Returns calcultion history"""
+        return cls.history
+
+    @classmethod
+    def get_last_calculation(cls)->"calculations":
+        """Returns most recent calculations or None if history is empty"""
+        return cls.history[-1] if cls.history else None
+
+    @classmethod
+    def clear_history(cls):
+        """Clears history"""
+        cls.history.clear()
+
+    def __rep__(self):
+        """Returns a string representation of the calculation"""
+        return f"calculation {self.a}, {self.b}, {self.operation.__name__}"
