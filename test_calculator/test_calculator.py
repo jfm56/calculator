@@ -32,6 +32,7 @@ def test_claculator_history_division():
         calc = CalculationHistory(Decimal("10"),Decimal("0"), lambda x,y: x /y)
         calc.compute()
 
+#Test calculations
 
 def test_add():
     """Test to see if add function works."""
