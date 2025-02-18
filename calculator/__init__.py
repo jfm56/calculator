@@ -4,7 +4,7 @@ from typing import Callable
 
 #pylint: disable=unnecessary-dunder-call, invalid-name
 
-class calculations:
+class Calculator:
     """Preforms arthmic operations as static methosds"""
 
     @staticmethod

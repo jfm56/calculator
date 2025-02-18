@@ -1,14 +1,14 @@
 """Operations for calculator including storing history and managing history"""
 from decimal import Decimal
 from typing import Callable
-from calculator import calculations
+from calculator import Calculator
 
 #pylint: disable=unnecessary-dunder-call, invalid-name
 
 class CalculationHistory:
     """Encapsulates a single calculation with two numbers and an operation."""
 
-    history: list["calculations"] = []  #Class-level history storage
+    history: list["Calculator"] = []  #Class-level history storage
 
     def __init__(self, a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
         """
@@ -28,12 +28,12 @@ pi
         return self.operation(self.a, self.b)
 
     @classmethod
-    def get_history(cls)-> "calculations":
+    def get_history(cls)-> "Calculator":
         """Returns calcultion history"""
         return cls.history
 
     @classmethod
-    def get_last_calculation(cls)->"calculations":
+    def get_last_calculation(cls)->"Calculator":
         """Returns most recent calculations or None if history is empty"""
         return cls.history[-1] if cls.history else None
 
