@@ -13,7 +13,7 @@ class CalculationHistory:
     def __init__(self, a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
         """
         Initialize a calculation.
-
+pi
         Args:
             a (Decimal): First number.
             b (Decimal): Second number.
