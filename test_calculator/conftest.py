@@ -1,11 +1,22 @@
 """Test includes faker to generate test data"""
 from decimal import Decimal
+import pytest
 from faker import Faker
 from calculator.operations import add, subtract, multiply, divide
 
 # pylint: disable=unnecessary-dunder-call, invalid-name
 
 fake = Faker()
+
+@pytest.fixture
+def operation_test_cases():
+    """Fixture that provides test cases for arithmetic operations."""
+    return [
+        (add, Decimal("2"), Decimal("3"), Decimal("5")),
+        (subtract, Decimal("7"), Decimal("3"), Decimal("4")),
+        (multiply, Decimal("4"), Decimal("3"), Decimal("12")),
+        (divide, Decimal("10"), Decimal("2"), Decimal("5")),
+    ]
 
 def generate_test_data(num_records):
     """Generate test data for Calculator and Calculation tests"""
@@ -52,3 +63,15 @@ def pytest_generate_tests(metafunc):
         ]
 
         metafunc.parametrize("a, b, operation, expected", modified_parameters)
+
+def test_operations():
+    """Test all operations in operations.py."""
+    assert add(Decimal("2"), Decimal("3")) == Decimal("5")
+    assert subtract(Decimal("7"), Decimal("3")) == Decimal("4")
+    assert multiply(Decimal("4"), Decimal("3")) == Decimal("12")
+    assert divide(Decimal("10"), Decimal("2")) == Decimal("5")
+
+def test_divide_by_zero():
+    """Ensure divide function raises ZeroDivisionError."""
+    with pytest.raises(ZeroDivisionError):
+        divide(Decimal("10"), Decimal("0"))
